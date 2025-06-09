@@ -25,11 +25,10 @@ const contactSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true, // додає createdAt та updatedAt автоматично
+    timestamps: true,
   },
 );
 
-// Колекція буде "contacts"
 const Contact = mongoose.model('Contact', contactSchema);
 
 export default Contact;
