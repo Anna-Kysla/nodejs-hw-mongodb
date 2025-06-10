@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import Contact from '../models/contactModel.js';
 
 export async function getAllContacts() {
@@ -5,5 +6,10 @@ export async function getAllContacts() {
 }
 
 export async function getContactById(contactId) {
+  // Перевіряємо, чи contactId — це валідний MongoDB ObjectId
+  if (!mongoose.Types.ObjectId.isValid(contactId)) {
+    return null;
+  }
+
   return await Contact.findById(contactId);
 }
